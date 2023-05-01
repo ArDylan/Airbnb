@@ -1,5 +1,9 @@
-import './globals.css'
-import { Inter, Nunito } from 'next/font/google'
+import './globals.css';
+import { Inter, Nunito } from 'next/font/google';
+import ClientOnly from './components/ClientOnly';
+import Navbar from './components/navbar/Navbar';
+import RegisterModal from './components/modals/RegisterModal';
+import ToasterProvider from './providers/ToasterProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 const nunito = Nunito({ subsets: ['latin'] })
@@ -16,7 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>{children}</body>
+      <body className={nunito.className}>
+        <ClientOnly>
+          <ToasterProvider />
+          <RegisterModal />
+          <Navbar />
+        </ClientOnly>
+        <div>
+          {children}
+        </div>
+        </body>
     </html>
   )
 }
