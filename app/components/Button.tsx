@@ -26,7 +26,7 @@ const Button: React.FC<ButtonPrpos> = ({
       className={`
         relative
         disabled:opacity-70
-        disabled: cursor-not-allowed
+        disabled:cursor-not-allowed
         rounded-lg
         hover:opacity-80
         transition
